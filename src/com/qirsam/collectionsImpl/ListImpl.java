@@ -1,5 +1,3 @@
-package collectionsImpl;
-
 import java.util.*;
 
 public class ListImpl<E> implements List<E> {
@@ -118,7 +116,9 @@ public class ListImpl<E> implements List<E> {
 
     @Override
     public E set(int index, E element) {
-        return null;
+        E oldElement = this.get(index);
+        array[index] = element;
+        return oldElement;
     }
 
     @Override
