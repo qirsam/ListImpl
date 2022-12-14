@@ -1,3 +1,5 @@
+package com.qirsam.collectionsImpl;
+
 import java.util.*;
 
 public class ListImpl<E> implements List<E> {
@@ -60,6 +62,29 @@ public class ListImpl<E> implements List<E> {
     }
 
     @Override
+    public E set(int index, E element) {
+        E oldElement = this.get(index);
+        array[index] = element;
+        return oldElement;
+    }
+
+    @Override
+    public void sort(Comparator<? super E> c) {
+        QuickSort.quickSort(this, c);
+    }
+
+    @Override
+    public void add(int index, E element) {
+        int newSize = size + 1;
+        if (newSize >= capacity) {
+            increasesCapacity();
+        }
+        System.arraycopy(array, index, array, index + 1, newSize - index);
+        array[index] = element;
+        size = newSize;
+    }
+
+    @Override
     public boolean isEmpty() {
         return false;
     }
@@ -112,18 +137,6 @@ public class ListImpl<E> implements List<E> {
     @Override
     public boolean retainAll(Collection<?> c) {
         return false;
-    }
-
-    @Override
-    public E set(int index, E element) {
-        E oldElement = this.get(index);
-        array[index] = element;
-        return oldElement;
-    }
-
-    @Override
-    public void add(int index, E element) {
-
     }
 
     @Override

@@ -1,6 +1,6 @@
-import java.util.Arrays;
+package com.qirsam.collectionsImpl;
+
 import java.util.Comparator;
-import java.util.Random;
 
 public class Main {
     public static void main(String[] args) {
@@ -14,8 +14,11 @@ public class Main {
 
         extracted(list);
 
-        QuickSort.quickSort(list, Comparator.naturalOrder());
+        list.sort(Comparator.reverseOrder());
 
+        extracted(list);
+
+        list.add(10, 13);
         extracted(list);
 
 
