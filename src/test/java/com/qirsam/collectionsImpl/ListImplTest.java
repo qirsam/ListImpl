@@ -26,12 +26,14 @@ class ListImplTest {
     @Test
     void get() {
         Integer actualResult = testList.get(2);
+
         assertThat(actualResult).isEqualTo(17);
     }
 
     @Test
     void remove() {
         Integer actualResult = testList.remove(2);
+
         assertThat(actualResult).isEqualTo(17);
     }
 
@@ -74,7 +76,6 @@ class ListImplTest {
     void addByIndex() {
         final int oldSize = testList.size();
         testList.add(3, TEST_INT);
-        int actualResult = testList.size();
 
         assertThat(testList)
                 .satisfies(list -> assertThat(list.size()).isEqualTo(oldSize + 1))
